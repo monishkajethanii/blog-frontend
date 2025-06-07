@@ -365,7 +365,7 @@ export default function BlogApp() {
             </div>
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-medium"
+              className="flex cursor-pointer items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-medium"
             >
               <Plus className="h-5 w-5" />
               <span>New Post</span>
@@ -398,7 +398,7 @@ export default function BlogApp() {
               </h2>
               <button
                 onClick={closeModal}
-                className="text-gray-400 hover:text-gray-600 p-2 rounded-full hover:bg-gray-100 transition-colors"
+                className="text-gray-400 cursor-pointer hover:text-gray-600 p-2 rounded-full hover:bg-gray-100 transition-colors"
                 disabled={isLoading}
               >
                 <X className="h-6 w-6 text-black" />
@@ -482,7 +482,7 @@ export default function BlogApp() {
                   type="button"
                   onClick={closeModal}
                   disabled={isLoading}
-                  className="flex-1 px-6 py-3 text-gray-600 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors font-medium disabled:opacity-50"
+                  className="flex-1 px-6 py-3 cursor-pointer text-gray-600 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors font-medium disabled:opacity-50"
                 >
                   Cancel
                 </button>
@@ -490,7 +490,7 @@ export default function BlogApp() {
                   type="submit"
                   onClick={handleSubmit}
                   disabled={isLoading}
-                  className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-medium disabled:opacity-50 disabled:transform-none"
+                  className="flex-1 px-6 py-3 cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-medium disabled:opacity-50 disabled:transform-none"
                 >
                   {isLoading ? 'Processing...' : (isEditMode ? "Update Post" : "Create Post")}
                 </button>
@@ -548,7 +548,7 @@ export default function BlogApp() {
                   <div className="flex items-center justify-between pt-4 border-t text-black border-gray-100">
                     <button
                       onClick={() => toggleComments(blog.id)}
-                      className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm"
+                      className="flex items-center gap-2 cursor-pointer text-gray-600 hover:text-blue-600 transition-colors text-sm"
                     >
                       <MessageCircle className="h-4 w-4 text-black" />
                       <span>{getCommentCount(blog)} Comments</span>
@@ -557,14 +557,14 @@ export default function BlogApp() {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => handleEdit(blog)}
-                        className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                        className="p-2 cursor-pointer text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                         title="Edit Post"
                       >
                         <Edit2 className="h-4 w-4 text-black" />
                       </button>
                       <button
                         onClick={() => handleDelete(blog.id)}
-                        className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                        className="p-2 cursor-pointer text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                         title="Delete Post"
                       >
                         <Trash2 className="h-4 w-4" />
@@ -599,7 +599,7 @@ export default function BlogApp() {
                         />
                         <button
                           onClick={() => addComment(blog.id)}
-                          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                          className="px-4 py-2 cursor-pointer bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
                         >
                           Post
                         </button>
