@@ -62,7 +62,7 @@ export default function BlogApp() {
       try {
         const response = await fetch("https://blog-backend-rouge-two.vercel.app/api/blogs", {
           headers: {
-            Auth: "c3RvcmVhbmRjb25uZWN0IGlzIGJlc3Q=",
+            Auth: process.env.auth,
           },
         });
         
@@ -141,7 +141,7 @@ export default function BlogApp() {
           const response = await fetch(url, {
             method: "PUT",
             headers: {
-              Auth: "c3RvcmVhbmRjb25uZWN0IGlzIGJlc3Q=",
+              Auth: process.env.auth,
               "Content-Type": "application/json"
             },
             body: JSON.stringify(formData)
@@ -183,7 +183,7 @@ export default function BlogApp() {
           const response = await fetch(url, {
             method: "POST",
             headers: {
-              Auth: "c3RvcmVhbmRjb25uZWN0IGlzIGJlc3Q=",
+              Auth: process.env.auth,
               "Content-Type": "application/json"
             },
             body: JSON.stringify(formData)
@@ -243,7 +243,7 @@ export default function BlogApp() {
           const response = await fetch(`https://blog-backend-rouge-two.vercel.app/api/deleteblog/${blogId}`, {
             method: "DELETE",
             headers: {
-              Auth: "c3RvcmVhbmRjb25uZWN0IGlzIGJlc3Q=",
+              Auth: process.env.auth,
             },
           });
           
@@ -287,7 +287,7 @@ export default function BlogApp() {
         const response = await fetch(`https://blog-backend-rouge-two.vercel.app/api/addcom/${blogId}`, {
           method: "POST",
           headers: {
-            Auth: "c3RvcmVhbmRjb25uZWN0IGlzIGJlc3Q=",
+            Auth: process.env.auth,
             "Content-Type": "application/json"
           },
           body: JSON.stringify({ comments })
