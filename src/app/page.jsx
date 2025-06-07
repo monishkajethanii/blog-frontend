@@ -383,7 +383,7 @@ export default function BlogApp() {
             placeholder="Search blogs..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white shadow-sm"
+            className="w-full pl-10 pr-4 py-3 border text-black border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white shadow-sm"
           />
         </div>
       </div>
@@ -401,7 +401,7 @@ export default function BlogApp() {
                 className="text-gray-400 hover:text-gray-600 p-2 rounded-full hover:bg-gray-100 transition-colors"
                 disabled={isLoading}
               >
-                <X className="h-6 w-6" />
+                <X className="h-6 w-6 text-black" />
               </button>
             </div>
             
@@ -425,7 +425,7 @@ export default function BlogApp() {
                   onChange={handleInputChange}
                   required
                   disabled={isLoading}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50"
+                  className="w-full px-4 py-3 border text-black border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50"
                 />
               </div>
               
@@ -441,7 +441,7 @@ export default function BlogApp() {
                   onChange={handleInputChange}
                   required
                   disabled={isLoading}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50"
+                  className="w-full px-4 py-3 border text-black border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50"
                 />
               </div>
 
@@ -457,7 +457,7 @@ export default function BlogApp() {
                   onChange={handleInputChange}
                   placeholder="e.g., react, javascript, tutorial"
                   disabled={isLoading}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50"
+                  className="w-full px-4 py-3 border text-black border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50"
                 />
               </div>
               
@@ -473,7 +473,7 @@ export default function BlogApp() {
                   required
                   rows="6"
                   disabled={isLoading}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50"
+                  className="w-full px-4 py-3 border text-black border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50"
                 />
               </div>
               
@@ -545,12 +545,12 @@ export default function BlogApp() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <div className="flex items-center justify-between pt-4 border-t text-black border-gray-100">
                     <button
                       onClick={() => toggleComments(blog.id)}
                       className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm"
                     >
-                      <MessageCircle className="h-4 w-4" />
+                      <MessageCircle className="h-4 w-4 text-black" />
                       <span>{getCommentCount(blog)} Comments</span>
                     </button>
                     
@@ -560,7 +560,7 @@ export default function BlogApp() {
                         className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                         title="Edit Post"
                       >
-                        <Edit2 className="h-4 w-4" />
+                        <Edit2 className="h-4 w-4 text-black" />
                       </button>
                       <button
                         onClick={() => handleDelete(blog.id)}
@@ -579,7 +579,7 @@ export default function BlogApp() {
                       {parseComments(blog.comments).length > 0 && (
                         <div className="space-y-3 mb-4">
                           {parseComments(blog.comments).map((comment, index) => (
-                            <div key={index} className="bg-gray-50 flex  justify-between rounded-lg p-3">
+                            <div key={index} className="bg-gray-50 flex  text-black justify-between rounded-lg p-3">
                               <p className="text-sm text-gray-700">{comment}</p>
                               <Heart className="text-sm"/>
                             </div>
@@ -594,7 +594,7 @@ export default function BlogApp() {
                           placeholder="Add a comment..."
                           value={newComment[blog.id] || ""}
                           onChange={(e) => handleCommentChange(blog.id, e.target.value)}
-                          className="flex-1 px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                          className="flex-1 px-3 py-2 text-black border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                           onKeyPress={(e) => e.key === 'Enter' && addComment(blog.id)}
                         />
                         <button
