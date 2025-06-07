@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Plus, X, Edit2, Trash2, MessageCircle, Search, Calendar, User, Hash, AlertCircle } from "lucide-react";
+import { Plus, X, Edit2, Trash2, MessageCircle, Search, Calendar, User, Hash, AlertCircle, Heart } from "lucide-react";
 
 export default function BlogApp() {
   const [blogs, setBlogs] = useState([]);
@@ -60,7 +60,7 @@ export default function BlogApp() {
       setIsLoading(true);
       setError("");
       try {
-        const response = await fetch("http://localhost:5000/api/blogs", {
+        const response = await fetch("https://blog-backend-rouge-two.vercel.app/api/blogs", {
           headers: {
             Auth: "c3RvcmVhbmRjb25uZWN0IGlzIGJlc3Q=",
           },
@@ -134,7 +134,7 @@ export default function BlogApp() {
     try {
       if (isEditMode && editingBlog) {
         // Edit mode - Update existing blog
-        const url = `http://localhost:5000/api/editblog/${editingBlog.id}`;
+        const url = `https://blog-backend-rouge-two.vercel.app/api/editblog/${editingBlog.id}`;
         console.log("Updating blog:", { id: editingBlog.id, formData });
         
         try {
@@ -176,7 +176,7 @@ export default function BlogApp() {
         }
       } else {
         // Create mode - Add new blog
-        const url = "http://localhost:5000/api/addblog";
+        const url = "https://blog-backend-rouge-two.vercel.app/api/addblog";
         console.log("Creating blog:", formData);
         
         try {
@@ -240,7 +240,7 @@ export default function BlogApp() {
       setError("");
       try {
         try {
-          const response = await fetch(`http://localhost:5000/api/deleteblog/${blogId}`, {
+          const response = await fetch(`https://blog-backend-rouge-two.vercel.app/api/deleteblog/${blogId}`, {
             method: "DELETE",
             headers: {
               Auth: "c3RvcmVhbmRjb25uZWN0IGlzIGJlc3Q=",
@@ -284,7 +284,7 @@ export default function BlogApp() {
 
     try {
       try {
-        const response = await fetch(`http://localhost:5000/api/addcom/${blogId}`, {
+        const response = await fetch(`https://blog-backend-rouge-two.vercel.app/api/addcom/${blogId}`, {
           method: "POST",
           headers: {
             Auth: "c3RvcmVhbmRjb25uZWN0IGlzIGJlc3Q=",
@@ -295,7 +295,6 @@ export default function BlogApp() {
         
         if (response.ok) {
           const result = await response.json();
-          // Update the blog with the new comment appended to the string
           setBlogs(prev => prev.map(blog => {
             if (blog.id === blogId) {
               const existingComments = blog.comments || "";
@@ -311,7 +310,6 @@ export default function BlogApp() {
         }
       } catch (apiError) {
         console.log("API not available, adding comment locally");
-        // Fallback: Add comment locally to string
         setBlogs(prev => prev.map(blog => {
           if (blog.id === blogId) {
             const existingComments = blog.comments || "";
@@ -360,7 +358,7 @@ export default function BlogApp() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h1 className="font-mono text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 DevBlog
               </h1>
               <p className="text-gray-600 mt-1">Share your thoughts with the world</p>
@@ -581,11 +579,9 @@ export default function BlogApp() {
                       {parseComments(blog.comments).length > 0 && (
                         <div className="space-y-3 mb-4">
                           {parseComments(blog.comments).map((comment, index) => (
-                            <div key={index} className="bg-gray-50 rounded-lg p-3">
+                            <div key={index} className="bg-gray-50 flex  justify-between rounded-lg p-3">
                               <p className="text-sm text-gray-700">{comment}</p>
-                              <span className="text-xs text-gray-500">
-                                Just now
-                              </span>
+                              <Heart className="text-sm"/>
                             </div>
                           ))}
                         </div>
